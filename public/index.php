@@ -1,16 +1,24 @@
 <?php
-echo 'test';
+
+use Backend\Database\CustomerRepository;
+
+require __DIR__.'/../vendor/autoload.php';
 require __DIR__."/home.php";
 
-$path = $_SERVER['REQUEST_URI'];
-$method = $_SERVER['REQUEST_METHOD'];
-var_dump($method);
-var_dump($path);
+
+$data['vorname'] = 'Johannes';
+$data['nachname'] = 'Panzer';
+$data['description'] = 'Lorem ipsun';
+$data['email'] = '123@tag24.de';
+var_dump($data);
+
+$customer = new CustomerRepository($pdo);
+$customer->insert($data);
 ?>
 
 <script>
     let data = {};
-    fetch('/index.php',{
+    fetch('/../source/database.php',{
         method:'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -22,28 +30,5 @@ var_dump($path);
         .catch(error => console.log(error))
     }
     })
-    //Connection to Database >>data<<
-    $pdo = new PDO("mysql:dbname=mail_project;host=localhost",
-        "root",
-        "root");
+
 </script>
-<?php
-function insert($data){
-    try {
-    $vorname=
-
-    $sql= 'INSERT INTO kunde (vorname,nachname,description,email) VALUES (:vorname,:nachname,:description,:email)';
-    $statement = $this->pdo->prepare($sql);
-    $statement->execute([
-        'nachname' => $nachname,
-        'vorname' => $vorname,
-        'description' => $date
-    ]);
-} catch (PDOException $e) {
-    echo 'Fehler: ' . htmlspecialchars($e->getMessage());
-    exit();
-}
-
-}
-?>
-

@@ -1,0 +1,16 @@
+{
+    "name": "lukasalbrecht/mailproject",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Lukas Albrecht",
+            "email": "lukas.albrecht@tag24.de"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Backend\\" : "source/"
+        }
+    }
+}

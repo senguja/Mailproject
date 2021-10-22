@@ -1,2 +1,45 @@
-<?php
-echo'<h1>hallo</h1>';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./libaries/bootstrap-5.1.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/custom.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col my-4 d-flex justify-content-center">
+            <div class="-form">
+                <h1 class="">Kontakt</h1>
+                <div class="my-3">
+                    <label for="firstname">Vorname</label>
+                    <input class="form-control" id="firstname" type="text">
+                </div>
+                <div class="my-3">
+                    <label for="lastname">Nachname</label>
+                    <input class="form-control" id="lastname" type="text">
+                </div>
+                <div class="my-3">
+                    <label for="email">Email</label>
+                    <input class="form-control" id="email" type="email">
+                </div>
+                <div class="my-3">
+                    <label for="message">Nachricht</label>
+                    <textarea class="form-control" id="message" type="text" rows="10"></textarea>
+                </div>
+                <button class="my-3 btn btn-secondary -submit">Email senden</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./libaries/bootstrap-5.1.0-dist/js/bootstrap.min.js"></script>
+<script type="module">
+    import App from "./app/App.js";
+
+    App()
+</script>
+</body>
+</html>

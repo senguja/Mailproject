@@ -11,10 +11,10 @@ export default function App() {
 
     function getInput() {
         return {
-            firstname: document.getElementById('firstname'),
-            lastname: document.getElementById('lastname'),
-            email: document.getElementById('email'),
-            message: document.getElementById('message'),
+            firstName: document.getElementById('firstname').value,
+            lastName: document.getElementById('lastname').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value,
         }
     }
 

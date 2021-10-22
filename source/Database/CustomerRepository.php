@@ -19,23 +19,19 @@ class  CustomerRepository
 
 
     /**
-     * @param $data
+     * @param Customer $customer
      */
-    function insert($data):void
+    function insert(Customer $customer):void
     {
         try {
-            $vorname= $data['vorname'];
-            $nachname= $data['nachname'];
-            $description= $data['description'];
-            $email= $data['email'];
 
             $sql= 'INSERT INTO customer (vorname,nachname,description,email) VALUES (:vorname,:nachname,:description,:email)';
             $statement = $this->pdo->prepare($sql);
             $statement->execute([
-                'vorname' => $vorname,
-                'nachname' => $nachname,
-                'description' => $description,
-                'email' => $email
+                'vorname' => $customer->getVorname(),
+                'nachname' => $customer->getNachname(),
+                'description' => $customer->getDescription(),
+                'email' => $customer->getEmail()
             ]);
         } catch (PDOException $e) {
             throw new PDOException('could not insert data into database');

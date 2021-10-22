@@ -1,5 +1,6 @@
 function send(mail) {
-    return fetch('/', {
+    console.log(mail)
+    return fetch('/send', {
         method: 'POST',
         headers: {
             'Content-type' : 'application/json'

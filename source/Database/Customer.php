@@ -4,7 +4,7 @@ namespace Backend\Database;
 
 class Customer
 {
-    /** @var int * */
+    /** @var int|null * */
     private $id;
     /** @var string * */
     private $vorname;
@@ -16,17 +16,18 @@ class Customer
     private $email;
 
     /**
-     * @param int $id
+     * @param int|null $id
      */
-    public function __construct($id)
+    public function __construct(?int $id = null)
     {
         $this->id = $id;
     }
 
+
     /**
-     * @return int
+     * @return int|null
      */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }

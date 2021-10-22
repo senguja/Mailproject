@@ -28,7 +28,7 @@ fi
 echo  "using $DOCKER"
 
 $DOCKER run -it --rm \
-  -p 8080:80 \
+  -p 8081:80 \
   -p 33060:3306 \
   -p 63790:6379 \
   -v "${PROJECT_DIRECTORY}":/var/www/html \

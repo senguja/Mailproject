@@ -1,10 +1,17 @@
 import Api from "./Api.js";
+import multipleChoice from "./multiChoice.js";
+
+
 
 export default function App() {
     document.querySelector('.-submit').addEventListener('click', function () {
-        const mail = getInput();
-
-        Api.send(mail)
+        const data = getInput();
+        if (data.firstName !== '' &&
+            data.lastName !== '' &&
+            data.email !== '' &&
+            data.message !== ''
+        )
+        Api.send(data)
             .then(data => console.log(data))
 
     })
@@ -17,6 +24,11 @@ export default function App() {
             message: document.getElementById('message').value,
         }
     }
+
+
+ let result= multipleChoice.showResults();
+
+
 
 
 }

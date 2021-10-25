@@ -9,14 +9,9 @@ use PDO;
 
 class MailHandlingController {
 
-
     public function handle() {
 
         $recievedData = json_decode(file_get_contents('php://input'));
-        $data['vorname'] = 'Johannes';
-        $data['nachname'] = 'Panzer';
-        $data['description'] = 'Lorem ipsun';
-        $data['email'] = '123@tag24.de';
 
         $customer = new Customer();
         $customer->setVorname($recievedData->firstName);
@@ -32,8 +27,35 @@ class MailHandlingController {
 
         echo json_encode([
             'success' => true,
-            'data_from_server' => $data
+            'data_from_server' => $customer
         ]);
+
+    }
+
+    public function sendMail(){
+        $recievedData = json_decode(file_get_contents('php://input'));
+
+        var_dump('vor variable');
+        $customer = new Customer();
+        $customer->setVorname($recievedData->firstName);
+        $customer->setNachname($recievedData->lastName);
+        $customer->setEmail($recievedData->email);
+        $customer->setDescription($recievedData->message);
+
+        $to = 'lukas.albrecht@tag24.de';
+        $subject = 'test';
+        $message = $customer->getDescription();
+        $from = $customer->getEmail();
+        $headers = 'From: ' . $from . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+        var_dump('vor funktion');
+
+        mail($to, $subject, $message, $headers);
+
+        var_dump('nach funktion');
+
+    }
+    public function sendAnswers(){
 
 
     }

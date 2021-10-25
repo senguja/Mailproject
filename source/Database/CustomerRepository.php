@@ -24,7 +24,6 @@ class  CustomerRepository
     function insert(Customer $customer):void
     {
         try {
-
             $sql= 'INSERT INTO customer (vorname,nachname,description,email) VALUES (:vorname,:nachname,:description,:email)';
             $statement = $this->pdo->prepare($sql);
             $statement->execute([

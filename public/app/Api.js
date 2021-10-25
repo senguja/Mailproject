@@ -10,9 +10,9 @@ function send(data) {
 
 }
 
-function sendAnswers(data) {
+function saveAnswer(data) {
     console.log(data)
-    return fetch('/sendAnswers', {
+    return fetch('/saveAnswer', {
         method: 'POST',
         headers: {
             'Content-type' : 'application/json'
@@ -24,7 +24,8 @@ function sendAnswers(data) {
 
 
 const Api = {
-    send
+    send,
+    saveAnswer
 }
 
 export default Api;

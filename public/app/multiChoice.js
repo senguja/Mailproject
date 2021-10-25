@@ -47,7 +47,8 @@ function showResults() {
 
     //array UserAnswers
     const answers = [];
-    if (answerContainers == null) {
+    console.log(answerContainers)
+    if (answerContainers) {
 
         //console.log('test');
         // for each question...
@@ -58,9 +59,9 @@ function showResults() {
             const selector = `input[name=question${questionNumber}]:checked`;
             const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
-            //console.log(userAnswer);
-
+            answers.push(questionNumber);
             answers.push(userAnswer);
+
             /* if answer is correct
             if (userAnswer === currentQuestion.correctAnswer) {
                 // add to the number of correct answers
@@ -74,7 +75,9 @@ function showResults() {
                 // color the answers red
                 answerContainers[questionNumber].style.color = 'red';
             }*/
+            console.log(answers);
         });
+        //console.log(answers);
         return answers;
     }
 

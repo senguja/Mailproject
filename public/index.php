@@ -19,9 +19,12 @@ if ($path == '/send') {
     $mailHandlingController = new MailHandlingController();
     $mailHandlingController->handle();
     $mailHandlingController->sendMail();
-
 }
 
+if ($path == '/saveAnswer'){
+    $mailHandlingController = new MailHandlingController();
+    $mailHandlingController->saveAnswers();
+}
 
 
 

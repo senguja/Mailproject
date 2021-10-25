@@ -5,11 +5,15 @@ namespace Backend\Controller;
 use Backend\Connection;
 use Backend\Database\Customer;
 use Backend\Database\CustomerRepository;
+use Backend\Database\SurveyMapper;
+use Backend\Database\UserAnswerRepository;
 use PDO;
 
-class MailHandlingController {
+class MailHandlingController
+{
 
-    public function handle() {
+    public function handle()
+    {
 
         $recievedData = json_decode(file_get_contents('php://input'));
 
@@ -32,7 +36,8 @@ class MailHandlingController {
 
     }
 
-    public function sendMail(){
+    public function sendMail()
+    {
         $recievedData = json_decode(file_get_contents('php://input'));
 
         var_dump('vor variable');
@@ -55,9 +60,13 @@ class MailHandlingController {
         var_dump('nach funktion');
 
     }
-    public function sendAnswers(){
 
-
+    public function saveAnswers()
+    {
+        $connection = new Connection();
+        $pdo = $connection->getPdo();
+        $surveyMapper = new SurveyMapper(new UserAnswerRepository($pdo));
+        $surveyMapper->insertAnswer();
     }
 }
 

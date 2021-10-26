@@ -29,14 +29,15 @@ export default function App() {
     document.getElementById('submit1').addEventListener('click', function (){
         let result= multipleChoice.showResults();
 
-        //console.log(result.filter(element => element === undefined ))
+        //wenn das Result Array keine  Radiobuttons gecheckt hat (undefined)
+        // , dann soll er die Antworten in Tabelle speichern
         if (result.filter(element => element === undefined ).length === 0){
             Api.saveAnswer(result)
                 .then(data => console.log(data))
         }
 
     })
-
+    //ruft die getQuestion Methode auf, die die Fragen aus der Datenbank holt
     Api.getQuestions(1).
     then(data => console.log(data));
 

@@ -49,30 +49,28 @@ $regEx = '#^([/A-z0-9]+)?(\?.*)$#i';
 
 // durchsucht $path  nach Übereinstimmungen mit $regEx, $matches wird mit den Suchergebnissen gefüllt
 preg_match($regEx, $path, $urlMatches);
-var_dump($urlMatches);
+//var_dump($urlMatches);
 
-$url = '';
-$queryString = '';
-$path = '';
-if ( count($urlMatches) === 3)
-{
+//$url = '';
+//$queryString = '';
+//$path = '';
+if (count($urlMatches) === 3) {
     [$url, $path, $queryString] = $urlMatches;
 }
 
-foreach ($routes as $route)
-{
-    preg_match_all('#'.$url.'#', $path, $matches);
-
-    var_dump($matches);
+$uri = '';
+foreach ($routes as $route) {
+    if ($path === $route) {
+        $uri = $route;
+    }
 }
 
-
 //wenn man im root ist dann render das html der home.php
-if ($path === '/') {
+if ($uri === '/') {
     require __DIR__ . "/home.php";
 }
 //wenn man eine request an /send sendet, mache das:
-if ($path === '/send') {
+if ($uri === '/send') {
     require __DIR__ . '/../source/Controller/MailHandlingController.php';
 
     $mailHandlingController = new MailHandlingController();
@@ -80,18 +78,15 @@ if ($path === '/send') {
     $mailHandlingController->sendMail();
 }
 
-if ($path === '/saveAnswer') {
+if ($uri === '/saveAnswer') {
     $answerStorageController = new AnswerStorageController();
     $answerStorageController->saveAnswers();
 }
 
 
-if ($path === '/getQuestions') {
-    var_dump('hi');
+if ($uri === '/getQuestions') {
     $questionController = new QuestionController();
     $questionController->fetch();
-
-
 }
 
 

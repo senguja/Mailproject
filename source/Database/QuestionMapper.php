@@ -16,7 +16,6 @@ class QuestionMapper
         $this->questionRepository = $questionRepository;
     }
 
-
     /**
      * Hier wird auf die Methode findBySurveyId (von QuestionRepository) zugegriffen
      * @param int $id

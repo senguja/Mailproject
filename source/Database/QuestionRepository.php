@@ -29,7 +29,7 @@ class QuestionRepository
         if ($record === false) {
             return [];
         }
-        //durchläuft Array, durchläuft die selbstdefinierte function packt das array wieder zusammen
+        //durchläuft Array, durchläuft die selbstdefinierte function, packt das array wieder zusammen
         return array_map(
             static function(array $record) :Question
             {

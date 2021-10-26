@@ -22,6 +22,10 @@ class AnswerStorageController
                 $userAnswer->setUserId(1);
                 $userAnswer->setQuestionId(1);
                 $userAnswerMapper->insertAnswer($userAnswer);
+
+                echo json_encode([
+                    'success' => true
+                ]);
             }
         }
 

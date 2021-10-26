@@ -14,7 +14,7 @@ class QuestionController
     public function fetch()
     {
         $path = $_SERVER['REQUEST_URI'];
-        $id = substr($path, strrpos($path, '/') + 1);
+        $id = substr($path, strrpos($path, '?') + 1);
         $connection= new Connection();
         $pdo = $connection->getPdo();
         $questionMapper = new QuestionMapper(new QuestionRepository($pdo));

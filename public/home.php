@@ -37,13 +37,13 @@
 
 <div class="container">
     <div class="row">
-        <h1>Quiz on Important Facts</h1>
+        <h1>Fragebogen</h1>
         <div class="quiz-container">
             <div id="quiz"></div>
         </div>
-        <button id="previous">Previous Question</button>
-        <button id="next">Next Question</button>
-        <button id="submit1">Submit Quiz</button>
+        <button id="previous"> vorherige Frage</button>
+        <button id="next">Nächste Frage</button>
+        <button id="submit1"> Fragenbogen senden</button>
         <div id="results"></div>
 
     </div>

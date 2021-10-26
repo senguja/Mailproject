@@ -3,7 +3,7 @@
 
 namespace Backend\Database;
 
-class SurveyMapper
+class UserAnswerMapper
 {
     /** @var UserAnswerRepository */
     private $userAnswerRepository;
@@ -20,8 +20,10 @@ class SurveyMapper
     /**
      * @param UserAnswer $userAnswer
      */
-    public function insertAnswer(UserAnswer $userAnswer) :void
+    public function insertAnswer(UserAnswer $userAnswer): void
     {
         $this->userAnswerRepository->insert($userAnswer);
     }
+
+
 }

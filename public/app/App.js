@@ -26,7 +26,18 @@ export default function App() {
     }
 
 
- let result= multipleChoice.showResults();
+    document.getElementById('submit1').addEventListener('click', function (){
+        let result= multipleChoice.showResults();
+
+        console.log(result.filter(element => element === undefined ))
+        if (result.filter(element => element === undefined ).length === 0){
+            Api.saveAnswer(result)
+                .then(data => console.log(data))
+        }
+
+
+    })
+
 
 
 

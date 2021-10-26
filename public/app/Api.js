@@ -22,6 +22,10 @@ function saveAnswer(data) {
 
 }
 
+function getQuestions(surveyId){
+    return fetch(`/getQuestions/${surveyId}`)
+        .then(response => response.json())
+}
 
 const Api = {
     send,

@@ -32,7 +32,6 @@ function buildQuiz() {
             );
         }
     );
-
     // finally combine our output list into one string of HTML and put it on the page
     quizContainer.innerHTML = output.join('');
 }
@@ -47,7 +46,7 @@ function showResults() {
 
     //array UserAnswers
     const answers = [];
-    console.log(answerContainers)
+    //console.log(answerContainers)
     if (answerContainers) {
 
         //console.log('test');
@@ -59,7 +58,7 @@ function showResults() {
             const selector = `input[name=question${questionNumber}]:checked`;
             const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
-            answers.push(questionNumber);
+           // answers.push(questionNumber);
             answers.push(userAnswer);
 
             /* if answer is correct
@@ -75,7 +74,7 @@ function showResults() {
                 // color the answers red
                 answerContainers[questionNumber].style.color = 'red';
             }*/
-            console.log(answers);
+            //console.log(answers);
         });
         //console.log(answers);
         return answers;

@@ -19,6 +19,20 @@ class Question
         $this->id = $id;
     }
 
+
+    /**
+     * @param array <string, string> $record
+     * @return self
+     */
+    public static function constructFromRecord(array $record): self
+    {
+        $question = new self((int)$record['id']);
+        $question->setQuestion((string)$record['question']);
+        $question->setSurveyId((int)$record['survey_id']);
+
+        return $question;
+    }
+
     /**
      * @return int
      */

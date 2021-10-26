@@ -4,7 +4,7 @@ namespace Backend\Database;
 
 class UserAnswer
 {
-    /** @var int */
+    /** @var int|null */
     private $id;
     /** @var string */
     private $answer;
@@ -14,25 +14,25 @@ class UserAnswer
     private $questionId;
 
     /**
-     * @param int $id
+     * @param int|null $id
      */
-    public function __construct(int $id)
+    public function __construct(int $id = null)
     {
         $this->id = $id;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
 
     /**
-     * @param int $id
+     * @param int|null $id
      */
-    public function setId(int $id): void
+    public function setId(?int $id): void
     {
         $this->id = $id;
     }

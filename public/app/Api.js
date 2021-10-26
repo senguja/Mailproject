@@ -29,7 +29,8 @@ function getQuestions(surveyId){
 
 const Api = {
     send,
-    saveAnswer
+    saveAnswer,
+    getQuestions
 }
 
 export default Api;

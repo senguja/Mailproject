@@ -3,6 +3,7 @@
 namespace Backend\Controller;
 
 use Backend\Connection;
+use Backend\Database\Question;
 use Backend\Database\QuestionMapper;
 use Backend\Database\QuestionRepository;
 
@@ -17,7 +18,17 @@ class QuestionController
         $connection= new Connection();
         $pdo = $connection->getPdo();
         $questionMapper = new QuestionMapper(new QuestionRepository($pdo));
-        $questionMapper->findBySurveyId((int)$id);
-
+        $questions = $questionMapper->findBySurveyId((int)$id);
+        echo json_encode([
+            'success' => true,
+            'questions' => array_map(
+                static function (Question $question){
+                    return [
+                        'id' => $question->getId(),
+                        'question' => $question->getQuestion()
+                    ];
+                },$questions
+            )
+        ]);
     }
 }

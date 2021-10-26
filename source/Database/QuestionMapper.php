@@ -8,6 +8,7 @@ class QuestionMapper
     private $questionRepository;
 
     /**
+     * Übergabeparameter ist das Object QuestionRepository
      * @param QuestionRepository $questionRepository
      */
     public function __construct(QuestionRepository  $questionRepository)
@@ -17,6 +18,7 @@ class QuestionMapper
 
 
     /**
+     * Hier wird auf die Methode findBySurveyId (von QuestionRepository) zugegriffen
      * @param int $id
      * @return array
      */

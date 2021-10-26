@@ -29,17 +29,16 @@ export default function App() {
     document.getElementById('submit1').addEventListener('click', function (){
         let result= multipleChoice.showResults();
 
-        console.log(result.filter(element => element === undefined ))
+        //console.log(result.filter(element => element === undefined ))
         if (result.filter(element => element === undefined ).length === 0){
             Api.saveAnswer(result)
                 .then(data => console.log(data))
         }
 
-
     })
 
-
-
+    Api.getQuestions(1).
+    then(data => console.log(data));
 
 
 }
